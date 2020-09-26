@@ -3,6 +3,7 @@
 /auth-service/target/
 /auth-service/HELP.md
 /blogging-service/build/
+/blogging-service/.gradle/
 /blogging-service/mongo-data/
 /blogging-service/HELP.md
 /config-server/target/
@@ -16,3 +17,7 @@
 /config-server/src/main/resources/shared/webclient-service-dev.yml
 /config-server/src/main/resources/shared/webclient-service-prod.yml
 /config-server/configserver.iml
+/emailmarketing-service/build/
+/emailmarketing-service/.gradle/
+/emailmarketing-service/mongo-data/
+/emailmarketing-service/HELP.md

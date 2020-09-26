@@ -1,0 +1,17 @@
+
+  mongo-blogging:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: email-marketing
+    log_opt:
+      max-size: "10m"
+      max-file: "10"
+    ports:
+      - 27018:27017
+    volumes:
+      - ./mongo-init/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-data:/data/db
+
