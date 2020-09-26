@@ -1,0 +1,50 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+ribbon:
+  ReadTimeout: 60000
+  connection-timeout: 3000
+  eureka:
+    enabled: true
+zuul:
+  ignoredServices: '*'
+  host:
+    time-to-live: -1
+    connect-timeout-millis: 5000
+    max-per-route-connections: 10000
+    max-total-connections: 5000
+    socket-timeout-millis: 60000
+  semaphore:
+    max-semaphores: 500
+
+  routes:
+    auth-service:
+      path: /uaa/** #path that will be intercepted
+      url: auth-service #which url the request will e mapped to
+      stripPrefix: false #if zuul should replace the "/uaa/" segment
+      sensitiveHeaders:
+
+    blogging-service:
+      path: /blog/**
+      serviceId: blogging-service
+      stripPrefix: false
+      sensitiveHeaders:
+
+    emailmarketing-service:
+      path: /email/**
+      serviceId: emailmarketing-service
+      stripPrefix: false
+      sensitiveHeaders:
+
+
+server:
+  port: 8043
+  connection-timeout: 10000
+
+#eureka:
+#  client:
+#    fetchRegistry: true

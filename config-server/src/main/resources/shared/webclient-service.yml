@@ -1,0 +1,32 @@
+server:
+  port: 8040
+
+#eureka:
+#  client:
+#    fetchRegistry: true
+
+thenextstep4u:
+  web:
+    url: http://localhost:8040
+#  gateway:
+#    url: http://blogging-service:8043
+  emailmarketing:
+    url: http://gateway-service:8043
+    path:
+      sendleadmagnet: /email/api/v1
+      emaillinkclicked: /email/api/v1
+      getleadmagnet: /email/api/v1/leadmagnet/
+      unsubscribe: /email/api/v1/unsubscribe/
+  blogging:
+    url: http://gateway-service:8043
+    path:
+      all: /blog/api/v1/all
+      5latest: /blog/api/v1/last5
+      blogbyid: /blog/api/v1/
+      blogbypathname: /blog/api/v1/path/
+      saveComment: /blog/api/v1/comment/
+      saveReply: /blog/api/v1/reply/
+
+
+
+

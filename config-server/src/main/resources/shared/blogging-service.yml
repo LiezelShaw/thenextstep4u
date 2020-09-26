@@ -1,0 +1,25 @@
+server:
+  port: 8042
+
+  logging:
+    level: DEBUG
+    file: logs/spring-boot-logging.log
+
+spring:
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    encoding: UTF-8
+  http:
+    multipart:
+      enabled: false
+  data:
+    mongodb:
+      database: blogging
+      username: user
+      password: password
+      host: mongo-blogging
+      port: 27017

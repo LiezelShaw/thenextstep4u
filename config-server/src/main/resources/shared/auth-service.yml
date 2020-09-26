@@ -1,0 +1,20 @@
+spring:
+  data:
+    mongodb:
+      host: mongo-auth
+      port: 27019
+      username: oauth-user
+      password: password
+      database: oauth-db
+
+server:
+  port: 8044
+  servlet:
+    context-path: /uaa
+
+#security:
+#  jwt:
+#    key-store: classpath:keystore.jks
+#    key-store-password: TheNextStep
+#    key-pair-alias: thenextstep4u.com
+#    key-pair-password: TheNextStep

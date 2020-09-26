@@ -5,3 +5,14 @@
 /blogging-service/build/
 /blogging-service/mongo-data/
 /blogging-service/HELP.md
+/config-server/target/
+/config-server/HELP.md
+/config-server/src/main/resources/shared/auth-service-dev.yml
+/config-server/src/main/resources/shared/auth-service-prod.yml
+/config-server/src/main/resources/shared/blogging-service-dev.yml
+/config-server/src/main/resources/shared/blogging-service-prod.yml
+/config-server/src/main/resources/shared/emailmarketing-service-dev.yml
+/config-server/src/main/resources/shared/emailmarketing-service-prod.yml
+/config-server/src/main/resources/shared/webclient-service-dev.yml
+/config-server/src/main/resources/shared/webclient-service-prod.yml
+/config-server/configserver.iml
