@@ -21,3 +21,5 @@
 /emailmarketing-service/.gradle/
 /emailmarketing-service/mongo-data/
 /emailmarketing-service/HELP.md
+/gateway-service/target/
+/gateway-service/HELP.md
