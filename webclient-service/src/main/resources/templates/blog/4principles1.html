@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>The 4 principles of Object Oriented Languages</title>
+    <meta name = "description=" content="What are the 4 principles of Object Oriented Languages (OOP)?"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175723314-1"></script>
+    <script src="../static/js/gtag.js" th:src="@{js/gtag.js}" type="text/javascript"></script>
+    <script src="../static/js/linenumber.js" th:src="@{js/linenumber.js}" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:insert="fragments/topmenu :: top-nav-menu"></div>
+<div class="row">
+    <div class="col-8 m-5 container">
+        <h1>What are the 4 principles of Object Oriented Languages (OOP) Part 1?</h1>
+        <hr>
+        <p>
+            There are 4 principles of oop programming that you need to master.  Today I'll be discussing these
+            principles with you in detail.  Take the time to go through them and maybe play around in an IDE with these
+            principles to make sure that you understand them.
+        </p>
+        <br>
+        <div class="d-flex justify-content-center responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4nzaGhSO7JM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <h4><i>Transcript</i></h4>
+
+        <h2>4 Principles of Object-Oriented Programming</h2>
+
+        <p>These 4 principles are an important part of object-oriented programming.   If you want to be successful in
+            OOP, you need to know and understand these principles.  They are encapsulation, abstraction, inheritance and polymorphism.  I’ll explain each of these to you with some examples.
+        </p>
+        <h4>Encapsulation</h4>
+        <p>
+            All attributes and methods related to an object get encapsulated in the object. Think about it as creating a capsule around the object.
+            No outside object shouldhave access to the object's variables directly.  An object keeps its state private from other objects.
+            If another object needs values from an object, it has to do so by using public methods.
+        </p>
+        <p>
+            Lets look at our lego figurine class again:
+        </p>
+        <pre>
+            <code> public class LegoFigurine {
+    private String name;
+    private Head head;
+    private HeadCovering hairHat;
+    private UpperBody shirt;
+    private LowerBody legs;
+
+    public void build() {
+        // Method to show legoFigurine how to put itself together
+    }
+}
+            </code>
+        </pre>
+        <p>
+            Here you can see that we use encapsulation in this class by making the attributes on the class private.
+            The private keyword in Java means that only the class or object itself can access the attribute.
+            You can also have private methods if needed.
+        </p>
+        <p>
+            The methods are public.  That means that anyone outside the class can access and call those methods
+            on the object.
+        </p>
+        <h4>Abstraction</h4>
+        <p>
+            This is a way of hiding the implementation of classes from others.  This means that other classes using
+            the class can't see the internal workings of the class.
+        </p>
+        <p>
+            Recently, my husband's car broke down. Neither of us knows much about cars and wouldn't even know where to
+            start to get it fixed.  Luckily for us, we have these amazing people called Mechanics, who know exactly how
+            to fix the car.  All we need to do is to ask the mechanic to fix the car for us.
+        </p>
+        <p>
+            So you can say that the complexity of fixing the car is hidden from us as owners.
+        </p>
+        <p>
+            In java code it would look as follows:
+        </p>
+        <pre>
+            <code>public class Car {
+    String colour;
+    String make;
+
+    public Car(String colour, String make) {
+        this.colour = colour;
+        this.make = make;
+    }
+}
+            </code>
+        </pre>
+        <p>Here we have a Car, which has a specific colour and make.</p>
+
+        <pre>
+            <code>public class CarOwner {
+    private String name;
+    private String surname;
+    private String cellNumber;
+    private Car car;
+
+    public CarOwner(String name, String surname, String cellNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.cellNumber = cellNumber;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void takeCarToMechanic(Mechanic mechanic) {
+        mechanic.fixCar(car);
+    }
+}
+            </code>
+        </pre>
+        <p>
+            Thge CarOwner has a name, surname, cellNumber and a Car.
+        </p>
+        <pre>
+            <code>public class Mechanic {
+    private String name;
+    private String surname;
+
+    public void fixCar(Car car) {
+        //Some code to fix the car for the owner
+    }
+}
+            </code>
+        </pre>
+        <p>
+            The Mechanic also has a name and surname and knows how to fix the car.
+        </p>
+        <pre>
+            <code>public class MainApp {
+    public static void main(String[] args) {
+        Car car = new Car("White", "Toyota Hilux");
+        CarOwner owner = new CarOwner("Joe", "Soap", "047 445 3434");
+        Mechanic mechanic = new Mechanic();
+        owner.setCar(car);
+        owner.takeCarToMechanic(mechanic);
+    }
+}
+            </code>
+        </pre>
+        <p>
+            This is the main method of the application that runs the code.  Here we create and instantiate a Car,
+            a CarOwner, and a Mechanic.  We then set the car on the owner, so that the owner has that specific car.
+            The owner then calls the method 'takeCarToMechanic' and add a parameter specifying which mechanic to go to.
+        </p>
+        <p>In the 'takeCarToMechanic' method, the owner tells the mechanic to 'fixCar'.  The owner doesn't need to know
+            how to fix the car, the mechanic will take care of that.  That is the concept of abstraction.
+        </p>
+
+        <p>
+            I hope this makes the principles of Object Oriented Programming a little bit clearer.  If you have any questions, or
+            comments for me, please leave a comment below and let me know.
+        </p>
+        <hr>
+        <div th:insert="fragments/comments :: comments"></div>
+    </div>
+
+    <div class="col-3" th:insert="fragments/sqeezepage-sm :: sqeezepage-sm"></div>
+
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script>
+    (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+
+</body>
+</html>
+
+

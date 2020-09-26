@@ -1,0 +1,201 @@
+body {
+    font-family: Helvetica,Arial;
+    font-size: 16px;
+    /*background-image: url("../images/blurred-bg-13.jpg");*/
+    background-color: #ededeb;
+    min-height: 100vh;
+}
+
+.help-block {
+    color: red;
+}
+
+.validation-message {
+    color: #FF0000;
+}
+
+p {
+    text-align: justify;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.topmenu {
+    color:	#C0C0C0;
+    background: #264d70;
+    padding-right:  100px;
+}
+
+.nav-item {
+    padding-left:  25px;
+}
+
+.tnc-docs {
+    font-family: garamount;
+    font-size: 14px;
+}
+
+.dropdown-menu {
+    font-size: 14px;
+}
+
+.messageModal-text {
+    color: black;
+ }
+
+.bg-main {
+    background-image: url("../images/pexels-photo.png");
+    /*background:  #47748b;*/
+    /*color:	#212F3C;*/
+    font-size: 16px;
+    color:#bdbdbd;
+}
+
+.bg-dim {
+    padding-bottom:50px;
+    padding-top:50px;
+    background-color:rgba(0,0,0,0.5);
+
+}
+
+.footer-icon {
+    font-size: 24px;
+}
+
+.error {
+    background: url("../images/fire.jpg") center no-repeat fixed #264d70;
+    color:	black;
+    padding: 100px;
+}
+
+.navigation-items{
+    display: flex;
+    color: 	#C0C0C0;
+    justify-content: flex-end;
+}
+
+.learn-logos {
+    height:100px;
+}
+
+.next-step-icon {
+/*    width: 50px;*/
+    height: 100px;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    color: #C0C0C0;
+    background:  #264d70;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size:14px;
+}
+
+.video-display {
+    background-color: #ffffff;
+    color: #5D6D7E;
+    width: 100%;
+    height:100%;
+}
+
+.comments {
+    background-color: #ffffff;
+    color: #5D6D7E;
+    width: 100%;
+    height:100%;
+    padding:20px;
+}
+
+pre {
+  background-color:#fff;
+  overflow:auto;
+  margin:0 0 1em;
+  padding:.5em 1em;
+  font:normal normal 14px/16px "Courier New",Courier,Monospace;*/
+}
+
+pre code,
+pre .line-number {
+  /* Ukuran line-height antara teks di dalam tag <code> dan <span class="line-number"> harus sama! */
+  font:normal normal 14px/16px "Courier New",Courier,Monospace;*/
+  color:black;
+  display:block;
+}
+
+pre .line-number {
+  float:left;
+  margin:0 1em 0 -1em;
+  border-right:1px solid;
+  text-align:right;
+}
+
+pre .line-number span {
+  display:block;
+  padding:0 .5em 0 1em;
+}
+
+pre .cl {
+  display:block;
+  clear:both;
+}
+
+/*a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}*/
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+footer a:hover, a:focus {
+    color: #ffffff;
+    text-decoration: underline;
+    transition: all 0.3s;
+}
+
+
+.tooltip-arrow,
+.tooltip > .tooltip-inner {
+    background-color: #264d70;
+    color: #C0C0C0;
+    font-size:12px;
+}
+
+#sidebar {
+    color: #C0C0C0;
+    transition: all 0.3s;
+}
+
+
+#sidebar ul.components {
+    margin: 20px 0;
+}
+
+#sidebar ul p {
+    color: #C0C0C0;
+    margin: 10px;
+}
+
+#sidebar ul li a {
+    margin: 10px;
+    font-size: 14px;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #47748b;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #47748b;
+
+}
+
+

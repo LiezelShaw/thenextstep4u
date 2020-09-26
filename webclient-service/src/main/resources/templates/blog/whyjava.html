@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>Learn Java</title>
+    <meta name = "description=" content="Learn Java - Reasons why Java is a good language to learn."/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175723314-1"></script>
+    <script src="../static/js/gtag.js" th:src="@{js/gtag.js}" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:insert="fragments/topmenu :: top-nav-menu"></div>
+<div class="row">
+    <div class="col-7 m-5 container">
+        <h1>Why Java</h1>
+        <hr>
+        <p>
+            There are so many programming languages to choose from when deciding which one to learn.  It can be quite
+            overwhelming to decide on the right one.  To help you with your decision, I have put together a video of
+            reasons why Java is a good language to learn.
+        </p>
+        <br>
+        <p> Watch the video below to find out why Java is a good language to learn.</p>
+        <br>
+        <div class="d-flex justify-content-center responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yoWsKwwb2Rg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <h4><i>Transcript</i></h4>
+        <p>People often ask me:  “Why Java?”</p>
+
+        <p>Well, here are some of the reasons why Java is a good language to learn.</p>
+
+        <p>Its a robust and powerful Object-Oriented language that is easy to learn.  If you are wondering what
+            Object-orientation is, its where the programming language is based on the concept of “Objects” that contain
+            fields or attributes as data and communicate with other object through methods.
+            A simple example would be a Car.  A car can have a colour, wheels, engine and a driver.
+            A driver is then another object with its own attributes and methods.</p>
+
+        <p>Java is platform independent.  This means that you can develop and run a java program on any operating system
+            as long as you have the Java Runtime Environment installed on it.  You can also develop your application on,
+            let’s say a Mac and run it on either windows, linux or unix with no problem.</p>
+
+       <p>The Java language is very simple.  However, Java comes with a library of classes that provide common
+           functionality to make your life as a programmer easier.  This library is called the Java API.
+           The Java language has only 50 keywords, but the Java API has several thousand classes that you can
+           use in your programs.</p>
+
+        <p>Besides the Java API, you also get hundreds of tools and frameworks for Java to help you even further,
+            like Spring Framework, JUnit, Mockito, Spring Boot, JBoss, Payara, Maven and many, many more.</p>
+
+        <p>There is also a very strong online community of Java Developers with lots of experts ready to help you
+            when you get stuck on a problem.  One such platform is StackOverflow, where you can post your questions
+            and get answers to solve your coding problems.  It is also well worth it to search through these sites
+            for issues you are having.  Chances are that someone has been where you are before and has the answer for
+            you.</p>
+
+        <p>Java is widely used all over the world, from large corporations to small businesses.</p>
+
+        <p>It is used on popular websites you might often use, such as Google, YouTube, LinkedIn, Amazon and eBay.
+            Even software development tools like Eclipse, IntelliJ IDEA and NetBeans IDE are all written in Java.</p>
+
+        <p>Java can be used to create all kinds of applications, from desktop and mobile Android apps to distributed
+            applications that run across different servers and clients in a network.  Nowadays, Java is often the default
+            choice for scientific applications, including natural language processing. The main reason for this is because
+            it is safe, portable, maintainable.</p>
+
+        <p>Depending on your career prospects, Java can take you on different career paths. Whether you’re interested in
+            building games, mobile applications, desktop applications, or web applications, Java is capable of working
+            in all these environments.</p>
+
+
+        <hr>
+        <div th:insert="fragments/comments :: comments"></div>
+    </div>
+
+    <div class="col-4" th:insert="fragments/sqeezepage-sm :: sqeezepage-sm"></div>
+
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

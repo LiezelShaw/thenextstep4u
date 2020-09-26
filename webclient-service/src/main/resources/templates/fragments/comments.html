@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>The Photo Shack - buying and selling your photos online</title>
+    <meta name = "description=" content="Selling your professional photos online without your own website.  Sport events, school events, etc."/>
+
+</head>
+<body>
+<th:block th:fragment="comments">
+    <div class="comments">
+        <h3>Leave a comment</h3>
+        <h6>Your email address will not be published</h6>
+        <a class="btn btn-sm btn-primary m-3" data-toggle="collapse" href="#submitComment" role="button" th:aria-expanded="${isCommentFormExpanded}" aria-expanded="false" aria-controls="submitComment">Write a comment</a>
+        <form id="submitComment" name="submitComment" autocomplete="off" action="#" th:action="@{/web/blog/comment/{blogId} (blogId=${blogPostDTO.id})}"
+              th:object="${newComment}" method="post" class="form-horizontal"
+              th:class="${isCommentFormExpanded ? 'form-horizontal collapse show' : 'form-horizontal collapse'}"
+              role="form">
+            <input type="hidden" name="parentId" th:value="${blogPostDTO.id}"/>
+            <div th:class="${#fields.hasErrors('fromName')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                <label class="col-sm-2 control-label">Name*</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{fromName}" class="form-control"  style="width:250px;"/>
+                    <p th:errors="*{fromName}" class="help-block">Name error</p>
+                </div>
+            </div>
+
+            <div th:class="${#fields.hasErrors('fromEmail')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                <label class="col-sm-2 control-label mt-2">Email*</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{fromEmail}" class="form-control" style="width:350px;" />
+                    <p th:errors="*{fromEmail}" class="help-block">Email error</p>
+                </div>
+            </div>
+
+            <div th:class="${#fields.hasErrors('details')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                <label class="col-sm-2 control-label">Comment*</label>
+                <div class="col-sm-10">
+                    <textarea rows="3" th:field="*{details}" class="form-control" ></textarea>
+                    <p th:errors="*{details}" class="help-block">Comment error</p>
+                </div>
+            </div>
+
+            <div th:class="${#fields.hasErrors('spamAnswer')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                <label class="col-sm-12 control-label mt-2">Just checking that you are not a robot?</label>
+                <label class="col-sm-12 control-label mt-2">*What is 3 + 2 equal to?</label>
+                <div class="col-sm-10">
+                    <input type="text" th:field="*{spamAnswer}" class="form-control" style="width:350px;" />
+                    <p th:errors="*{spamAnswer}" class="help-block">Spam error</p>
+                </div>
+            </div>
+
+            <div class="form-group pt-2">
+                <button type="submit" class="btn-sm btn-primary">Submit your comment</button>
+            </div>
+        </form>
+
+        <th:block th:each="comment : ${blogPostDTO.comments}">
+            <div th:id="${'comment-'+comment.id}" class="card mb-2 shadow-sm">
+                <div class="card-header d-flex justify-content-between">
+                    <h6 th:text="${comment.fromName}">liezelsmit77</h6>
+                    <h6 th:text="${comment.dateTimePosted}">2019-11-30 21:34:35</h6>
+                </div>
+                <div class="card-body">
+                    <p th:text="${comment.details}">This is a test comment.</p>
+                    <a class="btn btn-sm btn-primary" data-toggle="collapse" th:href="${'#submitReply-' + comment.id}" href="#submitReply" role="button" th:aria-expanded="${isReplyFormExpanded}" aria-expanded="false" aria-controls="submitReply">Reply</a>
+
+                    <form th:id="${'submitReply-' + comment.id}" id="submitReply" name="submitReply" autocomplete="off" action="#"
+                          th:action="@{/web/blog/reply/{blogId} (blogId=${blogPostDTO.id})}" th:object="${newReply}" method="post"
+                          th:class="${(replyFormExpanded == comment.id) ? 'form-horizontal collapse show' : 'form-horizontal collapse'}"
+                          class="form-horizontal collapse" role="form">
+                        <input type="hidden" name="parentId" th:value="${comment.id}" />
+                        <h6 class="mt-3">Write your reply</h6>
+                        <p>Your email address will not be published</p>
+                        <div th:class="${#fields.hasErrors('fromName')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                            <label class="col-sm-2 control-label">Name*</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{fromName}" class="form-control"  style="width:250px;"/>
+                                <p th:errors="*{fromName}" class="help-block">Name error</p>
+                            </div>
+                        </div>
+
+                        <div th:class="${#fields.hasErrors('fromEmail')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                            <label class="col-sm-2 control-label mt-2">Email*</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{fromEmail}" class="form-control" style="width:350px;" />
+                                <p th:errors="*{fromEmail}" class="help-block">Email error</p>
+                            </div>
+                        </div>
+
+                        <div th:class="${#fields.hasErrors('details')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                            <label class="col-sm-2 control-label">Reply*</label>
+                            <div class="col-sm-10">
+                                <textarea rows="3" th:field="*{details}" class="form-control" ></textarea>
+                                <p th:errors="*{details}" class="help-block">Reply error</p>
+                            </div>
+                        </div>
+
+                        <div th:class="${#fields.hasErrors('spamAnswer')} ? 'form-group validation-message flex-row' :'form-group flex-row' ">
+                            <label class="col-sm-12 control-label mt-2">Just checking that you are not a robot?</label>
+                            <label class="col-sm-12 control-label mt-2">*What is 3 + 2 equal to?</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{spamAnswer}" class="form-control" style="width:350px;" />
+                                <p th:errors="*{spamAnswer}" class="help-block">Spam error</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group pt-2">
+                            <button type="submit" class="btn-sm btn-primary">Post reply</button>
+                        </div>
+                    </form>
+
+                    <th:block th:each="reply : ${comment.replies}">
+                        <div class="card my-2 shadow-sm">
+                            <div class="card-header d-flex justify-content-between">
+                                <h6 th:text="${reply.fromName}">liezelsmit77</h6>
+                                <h6 th:text="${reply.dateTimePosted}">2019-11-30 21:34:35</h6>
+                            </div>
+                            <div class="card-body">
+                                <p th:text="${reply.details}">This is a test reply.</p>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</th:block>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+

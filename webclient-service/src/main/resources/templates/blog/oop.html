@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>What is Object-Oriented Programming (OOP)?</title>
+    <meta name = "description=" content="What is Object-Oriented Programming and the 4 principles of OOP."/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175723314-1"></script>
+    <script src="../static/js/gtag.js" th:src="@{js/gtag.js}" type="text/javascript"></script>
+    <script src="../static/js/linenumber.js" th:src="@{js/linenumber.js}" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:insert="fragments/topmenu :: top-nav-menu"></div>
+<div class="row">
+    <div class="col-8 m-5 container">
+        <h1>What is Object-Oriented Programming (OOP)?</h1>
+        <hr>
+        <p>
+            Knowing the basics of Object-Oriented programming will help you a lot when learning how to code in an OOP
+            language.  I'll explain to you in simple terms how an OOP language works.
+        </p>
+        <br>
+        <div class="d-flex justify-content-center responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ChPswZy--iE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <h4><i>Transcript</i></h4>
+        <p>
+            Object-Oriented programming (OOP) is exactly like the name says. It is programming that focusses on Objects.
+            Let me explain it in simpler terms, in the way I have come to understand and think about OOP.
+        </p>
+        <p>
+            In OOP, you see everything as objects that can interact with each other. Look at an object-oriented program
+            as its own virtual world. The characters are objects that can interact with each other. As an example, look
+            at the animated movie, ‘Wreck-It Ralph’. In this movie, you have characters of old arcade games interacting
+            with each other.  They also interact with their game worlds.  Object Orientation works the same. It is a way
+            of making abstract concepts more concrete.
+        </p>
+        <p>
+            In procedural programming, you have functions that manipulate data.  With OOP,  you have objects that
+            interact with each other in certain ways.  They have pre-programmed ways to interact with each other and with
+            their environment.
+        </p>
+        <p>
+            An object can have attributes or properties. They give more details about the object. Then it has methods
+            that specify how it interacts with its attributes and other object.
+        </p>
+        <p>
+            To explain it in a more concrete way, I decided to pull out my daughter’s lego to use as an example.
+        </p>
+        <p>
+            For example a lego figurine, consists of a head, hair, upper body and lower body.  These can be of
+            different colours and facial expressions.   This will be its attributes.   Then it can have a method that
+            will tell it how to ‘build’ itself to look like an actual lego figurine.  It can also have other methods
+            as to how to put a saddle on the lego horse for example.
+        </p>
+        <p>
+            In Java, the lego figurine will look as follows:
+        </p>
+        <pre>
+            <code>public class LegoFigurine {
+    private String name;
+    private Head head;
+    private HeadCovering hairHat;
+    private UpperBody shirt;
+    private LowerBody legs;
+
+    public void build() {
+        // Method to show legoFigurine how to put itself together
+    }
+}</code>
+        </pre>
+
+        <p>Head, HeadCovering, UpperBody and LowerBody are all other classes that LegoFigurine consists of.  This would
+            classify a 'has-a' relationship.  As in LegoFigurine has a Head, for example.
+        </p>
+        <p>
+            An Object-oriented language mainly consists of classes interacting with each other, by calling specific methods
+            on those classes to manipulate the data in them.  Even the standard library classes in Java works on the same
+            principle.  Here is an example program in Java that adds Strings to a list and then loops through the list to
+            print the values on the console.
+        </p>
+        <pre>
+            <code>public class SimpleApp {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("My");
+        list.add("name");
+        list.add("is");
+        list.add("Liezel");
+        list.add("Shaw.");
+        for (String listItem : list) {
+            System.out.print(listItem);
+            System.out.print(" ");
+        }
+    }
+}
+            </code>
+        </pre>
+        <p>
+            An ArrayList is an object which extends List and is able to hold a 'list' of multiple objects
+            of any type as long as it extends Object.  All objects in Java ultimately extends Object.  Firstly,
+            we create a new ArrayList and call it list.  Then we add a bunch 'String' objects to it, which you specify
+            with quotes.  After that we loop through each item in the list and print them out on the screen.
+        </p>
+        <p>
+            This gives you a bit more of an idea what an Object-Oriented language looks like and how it works.
+            If you have any questions, or comments for me, please leave a comment below and let me know.
+        </p>
+        <br>
+
+        <hr>
+        <div th:insert="fragments/comments :: comments"></div>
+    </div>
+
+    <div class="col-3" th:insert="fragments/sqeezepage-sm :: sqeezepage-sm"></div>
+
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script>
+    (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+
+</body>
+</html>
+
+

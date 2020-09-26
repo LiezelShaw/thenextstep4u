@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+</head>
+<body>
+
+<th:block th:fragment="footer">
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row mb-3 d-flex justify-content-center">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                    <img class="learn-logos m-2" th:src="@{/images/java.png}" src="../../static/images/java.png" alt="Learn Java"/>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                    <img class="learn-logos m-2" th:src="@{/images/spring.png}" src="../../static/images/spring.png" alt="Learn Java"/>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                    <img class="learn-logos m-2" th:src="@{/images/html-css-javascript.png}" src="../../static/images/html-css-javascript.png"
+                         alt="Learn HTML, CSS and Javascript" style="height:80px"/>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                    <img class="learn-logos m-2" th:src="@{/images/mysql.png}" src="../../static/images/mysql.png" alt="Learn MySQL"
+                         style="height:80px"/>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                    <img class="learn-logos m-2" th:src="@{/images/mongodb1.png}" src="../../static/images/mongodb1.png" alt="Learn MongoDB"/>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                    <img class="learn-logos m-2" th:src="@{/images/sdlc1.png}" src="../../static/images/sdlc1.png" alt="Learn Software Development Lifecycle"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                        <img class="shack-icon ml-5" th:src="@{/images/tns4u_logo.png}" src="../../static/images/tns4u_logo.png" alt="Th Next Step 4 U"/>
+                        <p>© 2020 The Next Step 4 U</p>
+                </div>
+                <div class="col-sm-6 col-md-2 mb-3">
+                    <a href="https://www.facebook.com/thenextstep4u2"class="fab fa-facebook footer-icon ml-2" aria-hidden="true"
+                              data-toggle="tooltip" data-placement="right" title="Facebook">
+                    </a>
+                    <a href="https://twitter.com/TheNextStep4U1" class="fab fa-twitter-square footer-icon ml-2" aria-hidden="true"
+                              data-toggle="tooltip" data-placement="right" title="Twitter">
+                    </a>
+                    <a href="https://www.instagram.com/thenextstep4u2/" class="fab fa-instagram footer-icon ml-2" aria-hidden="true"
+                              data-toggle="tooltip" data-placement="right" title="Instagram">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCndRfjGDMTOY4aKhEvu1LBA?view_as=subscriber" class="fab fa-youtube-square footer-icon ml-2" aria-hidden="true"
+                              data-toggle="tooltip" data-placement="right" title="YouTube">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-3 mb-3">
+                    <div><a th:href="@{/termsAndConditions}">Terms & Conditions</a></div>
+                    <div><a th:href="@{/privacyPolicy}">Privacy Policy</a></div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div><b>Support:</b><a href="mailto:support@thenextstep4u.com">support@thenextstep4u.com</a> </div>
+                    <div><b>Info:</b><a href="mailto:info@thenextstep4u.com">info@thenextstep4u.com</a></div>
+                    <div><b>Phone:</b>  +27 74 447 2133</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</th:block>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

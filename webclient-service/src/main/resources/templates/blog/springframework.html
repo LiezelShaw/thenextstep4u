@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>What is the Spring Framework?</title>
+    <meta name = "description=" content="What is the Spring Framework?  An explanation about Spring Framework and why it should be used. "/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175723314-1"></script>
+    <script src="../static/js/gtag.js" th:src="@{js/gtag.js}" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:insert="fragments/topmenu :: top-nav-menu"></div>
+<div class="row">
+    <div class="col-7 m-5 container">
+        <h1>What is the Spring Framework?</h1>
+        <hr>
+        <p>
+            If you want to create Enterprise Java applications or Java Web applications, Spring Framework with Spring boot
+            is a good option to look at.  Today I'll explain to you what the Spring Framework is and how it helps you to
+            create applications easily using Java with Spring Boot.
+        </p>
+        <br>
+        <p> Watch the video below to find out what the Spring Framework is and how it will help you create web applications
+            easily.</p>
+        <br>
+        <div class="d-flex justify-content-center responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xiDwNKNpAc0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <h4><i>Transcript</i></h4>
+        <p>
+            Spring Framework is an open source framework that makes Java Enterprise development easier.  A lot of the
+            code and configurations that you would have needed to write in the past is now taken care of for you by
+            Spring with the use of annotations.
+        </p>
+        <p>
+            It had its inception in 2003 as a response to the complexity of early J2EE specifications.  It lived up to
+            this in making enterprise development easier and is now the most popular application development framework
+            for enterprise Java. It has evolved quite a lot since then and has a large and active community that gives
+            feedback based on diverse real-world applications.  This has enabled Spring to evolve over a long period of
+            time.
+        </p>
+        <p>
+            Spring Framework is a lightweight and has a modular design.  This means that you can include just the parts
+            of it that you are going to use.  You have the core of Spring at the centre of the framework which includes
+            the configuration model and dependancy injection mechanism.  Spring provides foundational support for different
+            architectures, including Spring MVC for web, Spring JPA for persistence, Spring Mail for email and Spring Cloud
+            for cloud-based architectures amongst others.
+        </p>
+        <p>
+            Spring allows developers to create enterprise level applications using POJOs (Plain Old Java Objects),
+            instead of entity beans.  The benefit of this is that you don’t need an application server to run your
+            application, but you can deploy it on a lightweight, robust servlet container such as tomcat.
+        </p>
+        <p>
+            It also uses dependency-injection as an inversion of control method.  This means that you can keep classes
+            independent from each other so that they can be more reusable and easier to test too.
+        </p>
+        <p>
+            As from Spring 2.5 it became possible to configure dependancy injection using annotations.  You can now use
+            annotations on the component class itself to add beans and bean configuration into it.
+        </p>
+        <p>
+            Here are examples of some annotations:
+        </p>
+        <ul>
+            <li><i>@Component</i> - tells Spring that the class is a component and Spring will scan the class and add it to the
+                ApplicationContext</li>
+            <li><i>@Configuration</i> - indicates that the class can be used by the Spring IoC (Inversion of Control) container as
+                a source of bean definitions</li>
+            <li><i>@Configuration</i> - indicates that the class can be used by the Spring IoC (Inversion of Control) container as
+                a source of bean definitions</li>
+            <li><i>@Autowired</i> - for dependency injection.  It instantiates and autowires the attribute into your class.</li>
+            <li><i>@Bean</i> - a method level annotation that declares the adds the returned object of the method as a
+                bean in the application context.</li>
+        </ul>
+        <p>These are some of the annotations for Restful Webservices:</p>
+        <ul>
+            <li><i>@RestController</i> - indicates that the data returned by each method will be written straight into
+                the response body instead of rendering a template.</li>
+        </ul>
+        <p>
+            Spring Boot helps you to create stand-alone, production-grade Spring-based Applications that you can run.
+            Most Spring Boot applications need very little Spring configuration.  It is built on top of Spring Framework
+            and it comes with many dependencies that can be plugged into the Spring application by using annotations or
+            config files.  It also offerers a built in web server like Tomcat or Jetty when needed.
+        </p>
+        <hr>
+        <div th:insert="fragments/comments :: comments"></div>
+    </div>
+
+    <div class="col-4" th:insert="fragments/sqeezepage-sm :: sqeezepage-sm"></div>
+
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

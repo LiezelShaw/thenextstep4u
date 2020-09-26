@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>The 4 principles of Object Oriented Languages</title>
+    <meta name = "description=" content="What are the 4 principles of Object Oriented Languages (OOP)?"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175723314-1"></script>
+    <script src="../static/js/gtag.js" th:src="@{js/gtag.js}" type="text/javascript"></script>
+    <script src="../static/js/linenumber.js" th:src="@{js/linenumber.js}" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:insert="fragments/topmenu :: top-nav-menu"></div>
+<div class="row">
+    <div class="col-8 m-5 container">
+        <h1>What are the 4 principles of Object Oriented Languages (OOP) Part 2?</h1>
+        <hr>
+        <p>
+            There are 4 principles of oop programming that you need to master.  Today I'll be discussing the next 2
+            principles with you in detail, namely Inheritance and Polymorphism.  Take the time to go through them and maybe play around in an IDE with these
+            principles to make sure that you understand them.
+        </p>
+        <br>
+        <div class="d-flex justify-content-center responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/FBmprxtRSCg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <h4><i>Transcript</i></h4>
+
+        <h4>Inheritance</h4>
+        <p>
+            Inheritance is like the word says.  A class inherits all the functionality from its superclass.  You can say
+            that the class has an ‘is-a’ relationship with its superclass.
+        </p>
+        <div class="card mb-3">
+            <img class="card-img"  th:src="@{/images/inheritance.png}" src="../../static/images/inheritance.png" alt=""/>
+        </div>
+        <p>
+            Let's look at our example of the car owner and mechanic.
+            You can say that both the 'CarOwner' and 'Mechanic' extends 'Person'.  This means that 'CarOwner' is a Person
+            and 'Mechanic' is a 'Person'.  By extending 'Person', it will inherit all the attributes and methods from person.
+        </p>
+        <p>
+
+        </p>
+        <pre>
+            <code>public class Person {
+    protected String name;
+    protected String surname;
+    protected String cellNumber;
+
+    public Person(String name, String surname, String cellNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.cellNumber = cellNumber;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getCellNumber() {
+        return cellNumber;
+    }
+
+    public void setCellNumber(String cellNumber) {
+        this.cellNumber = cellNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}</code>
+        </pre>
+        <pre>
+            <code>public class CarOwner extends Person {
+    private Car car;
+
+    public CarOwner(String name, String surname, String cellnumber, Car car) {
+        super(name,surname,cellnumber);
+        this.car = car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void takeCarToMechanic(Mechanic mechanic) {
+        mechanic.fixCar(car);
+        System.out.println("Car fixed!");
+    }
+}
+            </code>
+        </pre>
+        <pre>
+            <code>  public class Mechanic extends Person {
+
+    public Mechanic(String name, String surname, String cellNumber) {
+        super(name,surname,cellNumber);
+    }
+
+    public void fixCar(Car car) {
+        System.out.println("Mechanic is fixing the owner's car ...");
+    }
+}
+            </code>
+        </pre>
+        <pre>
+            <code>public class InheritanceMain {
+    public static void main(String[] args) {
+        Car car = new Car("White", "Toyota Hilux");
+        CarOwner owner = new CarOwner("Joe", "Soap", "047 445 3434", car);
+        System.out.println("Owner name:  " + owner.getName());
+        System.out.println("Owner surname:  " + owner.getSurname());
+        System.out.println("Owner car make:  " + owner.getCar().getMake());
+        Mechanic mechanic = new Mechanic("John","Spanner", "047 486 5794");
+        owner.takeCarToMechanic(mechanic);
+    }
+}
+            </code>
+        </pre>
+        <p>
+            You will see that even though the attributes, name and surname is not specified on CarOwner, you can still
+            access them.  This is because CarOwner now inherits those attributes form Person.  If you run the code,
+            your output will look as follows:
+        </p>
+        <pre>
+            <code>
+    Owner name:  Joe
+    Owner surname:  Soap
+    Owner car make:  Toyota Hilux
+    Mechanic is fixing the owner's car ...
+    Car fixed!
+            </code>
+        </pre>
+        <h4>Polymorphism</h4>
+        <p>
+            The dictionary definition of polymorphism is <i>'the condition of occuring in several different forms'.</i>
+            So what does that mean in Java?  Polymorphism takes inheritance and abstraction a step further.  It gives you
+            the ability to call methods that are defined on the superclass on any instances of subclasses without even knowing
+            which subclass instance it is.
+        </p>
+        <p>
+            Let's go back to my daughter's lego example.  For this example we can have a superclass called LegoConstruct, which
+            has a method called build() on it.  Then we can have different lego constructs that extends LegoConstruct.
+            Let's say we have a WaterDragon and a FireChariot, which both extend LegoConstruct.  On LegoConstruct we
+            have a method called build().  The idea is that the build method will know how to build the LegoConstruct from
+            the lego blocks.
+        </p>
+        <p>Here is the code for the LegoConstruct:</p>
+        <pre>
+            <code>public abstract class LegoConstruct {
+    public void build() {
+        System.out.println("Building Lego Construct ...");
+    }
+}
+            </code>
+        </pre>
+        <p>
+            The class above is an abstract class which means that it cannot be instantiated as an object in
+            its own right.  You have to have subclasses who extends LegoConstruct to get the benefits of the methods
+            on this class
+        </p>
+        <pre>
+            <code>public class FireChariot extends LegoConstruct {
+    @Override
+    public void build() {
+        //provide the steps to build the Fire Chariot from the lego blocks
+        System.out.println("Building FireChariot ...");
+    }
+}
+            </code>
+        </pre>
+        <pre>
+            <code>public class WaterDragon extends LegoConstruct {
+    @Override
+    public void build() {
+        //provide the steps to build the Water Dragon from the lego blocks
+        System.out.println("Building WaterDragon ...");
+    }
+}
+            </code>
+        </pre>
+        <p>
+            These two classes both extend LegoConstruct and override the build() method with its own way to build the
+            construct that they are representing.
+        </p>
+        <p>
+            Lets look at some code where we implement these classes to show you how Polymorphism works and how it can benefit
+            you as a developer.  You have a whole bunch of lego constructs that needs to be built by code, but it will take
+            too long to pick every construct up, look at what it is first and then call that construct to build itself.  A much
+            better way to do it would be to to put it all in a list, loop through the list and tell each item in the list to build
+            itself without even knowing what it is.  That in a nutshell is Polymorphism.  So lets look at the code.
+        </p>
+        <pre>
+            <code>public class PolymorphismMain {
+    public static void main(String[] args) {
+        List&lt;LegoConstruct&gt; legoConstructs = new ArrayList&lt;&gt;();
+        FireChariot fireChariot = new FireChariot();
+        legoConstructs.add(fireChariot);
+        WaterDragon waterDragon = new WaterDragon();
+        legoConstructs.add(waterDragon);
+
+        legoConstructs.stream().forEach(legoConstruct -> legoConstruct.build());
+    }
+}
+            </code>
+        </pre>
+        <p>
+            Here we first create a new List, which will contain LegoContructs.  The generic '&lt;LegoConstruct&gt;'
+            tells the compiler that the list will contain LegoConstructs.  Then we create our constructs and add them to
+            the legoConstructs list.  Remember that both FireChariot and WaterDragon are both LegoConstructs too, because they
+            extend LegoConstruct.  When it comes to building the constructs, it becomes really easy by just looping through the
+            list with 'legoConstructs.stream()' and telling each legoConstruct in the list to build().
+        </p>
+        <p>
+            The output, when you run this code will look as follows:
+        </p>
+        <pre>
+            Building FireChariot ...
+            Building WaterDragon ...
+        </pre>
+        <p>
+            You can see that each construct in the list runs the build method of their respective classes and not the one
+            on LegoConstruct.
+        </p>
+        <p>
+            I hope this makes the principles of Object Oriented Programming a little bit clearer.  If you have any questions, or
+            comments for me, please leave a comment below and let me know.
+        </p>
+        <hr>
+        <div th:insert="fragments/comments :: comments"></div>
+    </div>
+
+    <div class="col-3" th:insert="fragments/sqeezepage-sm :: sqeezepage-sm"></div>
+
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script>
+    (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+</script>
+
+</body>
+</html>
+
+

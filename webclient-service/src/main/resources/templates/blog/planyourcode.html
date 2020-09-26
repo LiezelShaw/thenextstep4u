@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <title>Plan Your Code and Code Your Plan - Why software design is important</title>
+    <meta name = "description=" content="Why software design is important - Plan your code and do a proper design before you start programming."/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175723314-1"></script>
+    <script src="../static/js/gtag.js" th:src="@{js/gtag.js}" type="text/javascript"></script>
+</head>
+<body>
+
+<div th:insert="fragments/topmenu :: top-nav-menu"></div>
+<div class="row">
+    <div class="col-7 m-5 container">
+        <h1>Plan your Code and Code your Plan</h1>
+        <hr>
+        <p>
+            Software design is an important part of software development.  Designing your software properly before you start
+            writing your code will save time and effort down the line.  Here I've shared a few thoughts about planning and designing
+            your software first.
+        </p>
+        <br>
+        <p> Watch the video below to find out why its a good idea to plan your code and code your plan.</p>
+        <br>
+        <div class="d-flex justify-content-center responsive">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/pvPYD4lxTEw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <h4><i>Transcript</i></h4>
+        <p>A common mistake that a lot of programmers make, is to have an idea of what they want  to  code and then,
+            instead of planning it out first, they immediately start to code their idea without a plan.</p>
+
+        <p>They might think that they are getting their program out there quickly and don’t want to waste time on
+            planning and designs first.  They’ll just think about it as they code it.</p>
+
+        <p>The problem with this approach is that you actually waste time by not designing and planning your system first.</p>
+
+        <p>What can happen is that half way through coding your system, you can  hit a snag and realise you have a major
+            design flaw in the system which will prevent you from completing the project.  This means that you have to go
+            back to the drawing board, try to fix and update your current code and then continue.  You end up wasting quite
+            a lot of time going back and forth trying to re-fix the code.</p>
+
+        <p>Spending some time beforehand to design your system first, will save you time in the long run and bring out
+            some situations that you would not have thought about otherwise.</p>
+
+        <p>Before you start designing your system, you need to determine what you would like to accomplish and have a
+            clear-cut specification of the requirements that is needed for your system.</p>
+
+        <p>Once you have your requirements worked out, you need to decide on your coding conventions, best practices,
+            tools and architecture that you are going to use for your project.</p>
+
+        <p>This is especially important if you are part of a team.  Just imagine if everyone on the team has their
+            own way of doing things.  You will soon find your codebase in a big mess that nobody wants to touch.</p>
+
+        <p>Picking the right architecture for your project is just as important.  It will influence your design and
+            the tools you need for the project.  You need to know which database you are going to use and the reasons
+            for choosing that specific database.  Is it a distributed system running off the web or a stand-alone
+            application on a desktop or mobile device.  Which front-ends would be needed, web-based with HTML and CSS
+            or mobile devices with javascript or Swift.  Will you use spring framework or JEE for the backend?  What
+            about the communication between the front and back ends?  Thymeleaf templates or Restful Webservices.
+            These are just some of the decisions that needs to be made.</p>
+
+        <p>Once you have worked out your architecture and tools to use, you can start designing your system by using
+            use cases, class diagrams and sequence diagrams for example.</p>
+
+        <p>This will help you sort out your data model as well as which classes you will need and the relationships
+            between those classes.  Follow good design practices, to make your code extensible and easy to read.</p>
+
+        <p>You will then find that your code is much easier to write when you follow a good design.</p>
+
+        <hr>
+        <div th:insert="fragments/comments :: comments"></div>
+    </div>
+
+    <div class="col-4" th:insert="fragments/sqeezepage-sm :: sqeezepage-sm"></div>
+
+</div>
+
+<div th:insert="fragments/footer :: footer"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>
