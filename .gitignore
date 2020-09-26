@@ -25,3 +25,8 @@
 /gateway-service/HELP.md
 /registry-service/target/
 /registry-service/HELP.md
+/security/
+/webclient-service/build/
+/webclient-service/HELP.md
+/webclient-service/.gradle/
+/.idea/

@@ -1,0 +1,202 @@
+version : '3.8'
+services:
+  config-server:
+    image: thenextstep4u/config-server:1
+    build:
+      context: ./config-server
+      dockerfile: Dockerfile
+    networks:
+      - the-next-step4-u-network
+    expose:
+      - 8888
+    ports:
+      - 8888:8888
+    logging:
+      driver: json-file
+
+  mongo-blogging:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: blogging-user
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: blogging
+    ports: 
+      - 27017:27017
+    expose:
+      - 27017
+    volumes:
+      - ./blogging-service/mongo-init/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./blogging-service/mongo-data:/data/db
+    networks:
+      - the-next-step4-u-network
+
+  mongo-emailmarketing:
+    image: mongo:latest
+    command: mongod --port 27018
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: email-user
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: email-marketing
+    ports:
+      - 27018:27018
+    expose:
+      - 27018
+    volumes:
+      - ./emailmarketing-service/mongo-init/init-mongo.js:/docker-entrypoint-initdb.d/init mongo.js:ro
+      - ./emailmarketing-service/mongo-data:/data/db
+    networks:
+      - the-next-step4-u-network
+
+  mongo-auth:
+    image: mongo:latest
+    command: mongod --port 27019
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: oauth-user
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: oauth-db
+    ports:
+      - 27019:27019
+    expose:
+      - 27019
+    volumes:
+      - ./auth-service/mongo-init/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./auth-service/mongo-volume:/data/db
+    networks:
+      - the-next-step4-u-network
+
+  registry-service:
+    image: thenextstep4u/registry-service:1
+    build:
+      context: ./registry-service
+      dockerfile: Dockerfile
+    links:
+      - config-server:config-server
+    depends_on: 
+      - config-server
+    expose: 
+      - 8761
+    networks:
+      - the-next-step4-u-network
+    volumes:
+      - /data
+    ports:
+      - 8761:8761
+    logging:
+      driver: json-file
+
+  gateway-service:
+    image: thenextstep4u/gateway-service:1
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    depends_on: 
+      - config-server
+      - registry-service
+    expose: 
+      - 8043
+    networks:
+      - the-next-step4-u-network
+    links:
+      - config-server:config-server
+      - registry-service:registry-service
+    volumes:
+      - /data
+    ports:
+      - 8043:8043
+    logging:
+      driver: json-file
+
+  auth-service:
+    image: thenextstep4u/auth-service:1
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    expose: 
+      - 8044
+    ports:
+      - 8044:8044
+    links:
+      - config-server:config-server
+      - registry-service:registry-service
+      - gateway-service:gateway-service
+    depends_on: 
+      - config-server
+      - registry-service
+      - gateway-service
+    networks:
+      - the-next-step4-u-network
+    logging:
+      driver: json-file
+
+  blogging-service:
+    image: thenextstep4u/blogging-service:1
+    build:
+      context: ./blogging-service
+      dockerfile: Dockerfile
+    expose: 
+      - 8042
+#    ports:
+#      - 8042:8042
+    links:
+      - config-server:config-server
+      - registry-service:registry-service
+      - gateway-service:gateway-service
+    depends_on: 
+      - config-server
+      - registry-service
+      - gateway-service
+    networks:
+      - the-next-step4-u-network
+    logging:
+      driver: json-file
+
+  emailmarketing-service:
+    image: thenextstep4u/emailmarketing-service:1
+    build:
+      context: ./emailmarketing-service
+      dockerfile: Dockerfile
+    expose: 
+      - 8041
+    ports:
+      - 8041:8041
+    links:
+      - config-server:config-server
+      - registry-service:registry-service
+      - gateway-service:gateway-service
+    depends_on: 
+      - config-server
+      - registry-service
+      - gateway-service
+    networks:
+      - the-next-step4-u-network
+    logging:
+      driver: json-file
+
+  webclient-service:
+    image: thenextstep4u/webclient-service:1
+    build:
+      context: ./webclient-service
+      dockerfile: Dockerfile
+    volumes:
+      - /data
+    ports:
+      - 8040:8040
+    links:
+      - config-server:config-server
+#      - registry-service:registry-service
+#      - gateway-service:gateway-service
+    depends_on: 
+      - config-server
+#      - registry-service
+#      - gateway-service
+    networks:
+      - the-next-step4-u-network
+    logging:
+      driver: json-file
+
+networks:
+  the-next-step4-u-network:
+    driver: bridge
